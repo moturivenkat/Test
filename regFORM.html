@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>Registration Form in HTML</title>
+<style>
+table tr th{
+background:#e6e6e6;
+font-size:24px;
+font-family:courier new;
+font-weight:900;
+}
+table tr td,input,select,textarea{
+font-size:18px;
+font-family:bree serif;
+}
+</style>
+<script type='text/javascript'>
+function validateForm(){
+	n = document.TestForm.Name.value;
+	un = document.TestForm.UserName.value;
+	p = document.TestForm.Password.value;
+	rp = document.TestForm.rPassword.value;
+	pic = document.TestForm.Picture.value;
+	m = document.TestForm.Mobile.value;
+
+	n_pat = /^[a-z]{3,}$/i;
+  if(!n_pat.test(n)){
+		alert("Invalid name");
+		return false;
+	}
+	un_pat = /^[a-z0-9]{3,}$/i;
+	if(!un_pat.test(un)){
+		alert("Invalid user name");
+		return false;
+	}
+
+	if(p.length < 6){
+		alert("Password length >= 6 ");
+		return false;
+	}
+	
+	if( p != rp){
+		alert("Password mismatch");
+		return false;
+	}	
+
+	pic_pat = /\.(jpe?g|png|gif)$/i;
+	if(!pic_pat.test(pic)){
+		alert("Only jpg, png, gif images are allowed");
+		return false;
+	}
+
+	m_pat = /^[6-9][0-9]{9}$/;
+	if(!m_pat.test(m)){
+		alert("Invalid mobile no");
+		return false;
+	}
+	return true;
+}
+</script>
+</head>
+<body>
+<form name='regForm'onsubmit='javascript: return validateForm()'>
+<table align='center' border='1' width='70%' cellpadding='6' cellspacing='0'>
+<thead>
+<tr><th colspan='2'>New User Please Register Here</th></tr>
+</thead>
+<tbody>
+<tr><td width='32%'>Enter Name</td><td>
+<input type='text' name='fname' id='Fldfname' value='' placeholder='Enter Name'/>
+</td></tr>
+<tr><td><label for='Fldemail'>Enter Email</label></td><td>
+<input type='text' name='email' id='Fldemail' title='Enter Valid Email'/>
+</td></tr>
+<tr><td>Enter Password</td><td>
+<input type='password' name='pwd' id='Fldpwd'/>
+</td></tr>
+<tr><td>Confirm Password</td><td>
+<input type='password' name='cpwd' id='Fldcpwd'/>
+</td></tr>
+<tr><td>Choose Gender</td><td>
+<input type='radio' name='gend' value='m' checked id='Fldgendm'/> <label for='Fldgendm'>Male</label>
+<input type='radio' name='gend' value='f' id='Fldgendf'/> <label for='Fldgendf'>Female</label>
+</td></tr>
+<tr><td>Choose Languages</td><td>
+<input type='checkbox' value='e' name='lang[]' checked disabled id='Fldlange'/> Eng
+<input type='checkbox' value='t' name='lang[]' id='Fldlangt'/> Tel
+<input type='checkbox' value='h' name='lang[]' id='Fldlangh'/> <label for='Fldlangh'>Hin</label>
+</td></tr>
+<tr><td>Choose Country</td><td>
+<select name='coun' id='Fldcoun'>
+<option value=''>Please Select</option>
+<option value='in'>India</option>
+<option value='us'>United States</option>
+<option value='uk'>United Kingdom</option>
+</select>
+</td></tr>
+<tr><td>Address</td><td>
+<textarea placeholder='Address 160 Char Only' cols='30' rows='5' name='addr' id='Fldaddr'></textarea>
+</td></tr>
+<tr><td>Upload Image</td><td>
+<input type='file' name='pic' id='Fldpic'/>
+</td></tr>
+</tbody>
+<tfoot>
+<tr><td colspan='2' align='right'>
+<input type='submit' value='Register !' name='sub'/>
+<input type='reset' value='Refresh !' name='can'/>
+</td></tr>
+</tfoot>
+</table>
+</form>
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>
